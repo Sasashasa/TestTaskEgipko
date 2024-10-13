@@ -29,18 +29,19 @@ public class PlayerStatsHandler : MonoBehaviour
 
 		_playerStats = new Dictionary<PlayerStat, int>
 		{
-			[PlayerStat.Strength] = _startStrength,
-			[PlayerStat.Endurance] = _startEndurance,
-			[PlayerStat.Wisdom] = _startWisdom,
+			[PlayerStat.Strength] = PlayerPrefs.GetInt(PlayerStat.Strength.ToString(), _startStrength),
+			[PlayerStat.Endurance] = PlayerPrefs.GetInt(PlayerStat.Endurance.ToString(), _startEndurance),
+			[PlayerStat.Wisdom] = PlayerPrefs.GetInt(PlayerStat.Wisdom.ToString(), _startWisdom),
 		};
 	}
 
 	public void SetPlayerStat(PlayerStat stat, int newValue)
 	{
 		if (newValue < 0)
-			return;
+			throw new ArgumentOutOfRangeException();
 
 		_playerStats[stat] = newValue;
+		PlayerPrefs.SetInt(stat.ToString(), newValue);
 		
 		OnPlayerStatChanged?.Invoke(this, new OnPlayerStatChangedEventArgs
 		{
