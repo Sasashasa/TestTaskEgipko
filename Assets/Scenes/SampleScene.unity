@@ -3462,11 +3462,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce8fea18856d9d4f91b8774fbc595fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPotion: {fileID: 11400000, guid: 306085adf23b0a94a8d2b968e25caacf, type: 2}
-  _speedPotion: {fileID: 11400000, guid: 889ea7c0bd901034a9f859459f03a55c, type: 2}
-  _poison: {fileID: 11400000, guid: cc8c5df040aa49241bb03aa1722d94e5, type: 2}
-  _wisdomBook: {fileID: 11400000, guid: cc4f0aceae7aa6e4ea5d3b9f57fb036b, type: 2}
-  _powerHammer: {fileID: 11400000, guid: 466080639e95ec44088c256e186d5250, type: 2}
+  _itemSOArray:
+  - {fileID: 11400000, guid: 306085adf23b0a94a8d2b968e25caacf, type: 2}
+  - {fileID: 11400000, guid: cc8c5df040aa49241bb03aa1722d94e5, type: 2}
+  - {fileID: 11400000, guid: 466080639e95ec44088c256e186d5250, type: 2}
+  - {fileID: 11400000, guid: 889ea7c0bd901034a9f859459f03a55c, type: 2}
+  - {fileID: 11400000, guid: cc4f0aceae7aa6e4ea5d3b9f57fb036b, type: 2}
 --- !u!4 &1534999316
 Transform:
   m_ObjectHideFlags: 0
