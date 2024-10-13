@@ -1,14 +1,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 [Serializable]
 public class Inventory
 {
 	public event EventHandler OnItemsChanged;
+
+	public List<InventoryItem> InventoryItems
+	{
+		get => _inventoryItems;
+		private set => _inventoryItems = value;
+	}
 	
-	public List<InventoryItem> InventoryItems = new();
-	
+	[SerializeField] private List<InventoryItem> _inventoryItems;
+
+	public Inventory()
+	{
+		InventoryItems = new List<InventoryItem>();
+	}
+
 	public void AddItem(WorldItem worldItem)
 	{
 		bool itemAlreadyInInventory = InventoryItems.Any(inventoryItem => inventoryItem.ItemType == worldItem.ItemType);

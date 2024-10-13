@@ -4,8 +4,26 @@ using UnityEngine;
 [Serializable]
 public class InventoryItem
 {
-	public ItemType ItemType;
-	public int Amount;
+	public ItemType ItemType
+	{
+		get => _itemType;
+		private set => _itemType = value;
+	}
+
+	public int Amount
+	{
+		get => _amount;
+		set
+		{
+			if (value <= 0)
+				throw new ArgumentOutOfRangeException();
+			
+			_amount = value;
+		}
+	}
+	
+	[SerializeField] private ItemType _itemType;
+	[SerializeField] private int _amount;
 
 	public InventoryItem(WorldItem worldItem)
 	{

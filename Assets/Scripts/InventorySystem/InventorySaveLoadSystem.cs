@@ -20,8 +20,6 @@ public class InventorySaveLoadSystem : MonoBehaviour
 	{
 		string json = JsonUtility.ToJson(inventory);
 		
-		Debug.Log("Save: " + json);
-		
 		PlayerPrefs.SetString(InventoryPlayerPrefs, json);
 		PlayerPrefs.Save();
 	}
@@ -30,8 +28,6 @@ public class InventorySaveLoadSystem : MonoBehaviour
 	public Inventory LoadInventory()
 	{
 		string json = PlayerPrefs.GetString(InventoryPlayerPrefs);
-		
-		Debug.Log("Load: " + json);
 		
 		Inventory inventory = JsonUtility.FromJson<Inventory>(json);
 
